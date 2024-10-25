@@ -59,8 +59,8 @@ const pinoLogger = <ContextKey extends string = "logger">(
       const resBindings = opts?.http?.onResponse(ctx) ?? {};
       reqBindings = Object.assign(reqBindings, resBindings);
 
-      const level = opts?.http?.onResponseLevel(ctx);
-      const message = opts?.http?.onResponseMessage(ctx);
+      const level = logger.resLevel ?? opts?.http?.onResponseLevel(ctx);
+      const message = logger.resMessage ?? opts?.http?.onResponseMessage(ctx);
       logger[level](reqBindings, message);
     }
   });

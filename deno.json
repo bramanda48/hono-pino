@@ -1,20 +1,21 @@
 {
   "name": "@bramanda48/hono-pino",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "exports": "./mod.ts",
   "publish": {
     "include": ["LICENSE.md", "README.md", "mod.ts", "src/**/*.ts"]
   },
   "tasks": {
-    "dev:example1": "deno run -A --watch examples/example1.ts",
-    "dev:example2": "deno run -A --watch examples/example2.ts",
-    "dev:example3": "deno run -A --watch examples/example3.ts",
+    "dev:example1": "deno run -A --watch example/example1.ts",
+    "dev:example2": "deno run -A --watch example/example2.ts",
+    "dev:example3": "deno run -A --watch example/example3.ts",
+    "dev:example4": "deno run -A --watch example/example4.ts",
+    "dev:example5": "deno run -A --watch example/example5.ts",
     "deps": "deno cache --reload --lock=deno.lock mod.ts",
     "test": "deno test"
   },
   "imports": {
     "@hono/hono": "jsr:@hono/hono@^4.6.6",
-    "@std/assert": "jsr:@std/assert@1",
     "@std/uuid": "jsr:@std/uuid@^1.0.4",
     "pino": "npm:pino@^9.5.0"
   },

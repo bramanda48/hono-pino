@@ -79,7 +79,6 @@
   "workspace": {
     "dependencies": [
       "jsr:@hono/hono@^4.6.6",
-      "jsr:@std/assert@1",
       "jsr:@std/uuid@^1.0.4",
       "npm:pino@^9.5.0"
     ]

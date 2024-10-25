@@ -13,8 +13,9 @@ export interface PinoLogger {
 export class PinoLogger {
   protected rootLogger: Logger;
   protected logger: Logger;
-  protected resMessage: string | null = null;
-  protected resLevel: Level | null = null;
+
+  public resMessage: string | null = null;
+  public resLevel: Level | null = null;
 
   constructor($rootLogger: Logger) {
     this.rootLogger = $rootLogger.child({});

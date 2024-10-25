@@ -16,7 +16,7 @@
 
 ## Installation & Usage
 
-Install `@bramanda48/hono-pino using` `deno add`:
+Install `@bramanda48/hono-pino` using `deno add`:
 
 ```bash
 deno add jsr:@bramanda48/hono-pino
@@ -57,6 +57,101 @@ app.get("/wait", (ctx) => {
 Deno.serve({ port: 3000 }, app.fetch);
 ```
 For more sample, you can see in [Example folder](https://github.com/bramanda48/hono-pino/tree/master/example)
+
+## Options
+
+```ts
+export interface PinoOptions<ContextKey> {
+  /**
+   * Context key for logger
+   *
+   * @default "logger"
+   */
+  contextKey?: ContextKey;
+  /**
+   * Header name for Request ID
+   *
+   * @default "X-Request-ID"
+   */
+  requestIdKey?: string;
+  /**
+   * Pino logger instance
+   */
+  pino?: Logger | LoggerOptions | DestinationStream;
+  /**
+   * Pino http bindings
+   */
+  http?: IPinoHttp;
+  /**
+   * Response time
+   *
+   * @default true
+   */
+  responseTime?: boolean;
+}
+```
+
+## Request and Response Bindings
+
+With bindings you can feel free to custom the request and response log. you just create class to custom it. For example.
+
+```ts
+
+import { logger } from "@bramanda48/hono-pino";
+
+export class CustomHttpBindings extends PinoHttp {
+  override RequestId(): Promise<string> {
+    return Promise.resolve(crypto.randomUUID());
+  }
+
+  override onRequest(ctx: Context): Bindings {
+    return {
+      req: {
+        url: ctx.req.path,
+        method: ctx.req.method,
+        headers: ctx.req.header(),
+      },
+    };
+  }
+
+  override onRequestLevel(): Level {
+    return "info";
+  }
+
+  override onRequestMessage(): string {
+    return "Request started";
+  }
+
+  override onResponse(ctx: Context): Bindings {
+    return {
+      res: {
+        status: ctx.res.status,
+        headers: ctx.res.headers,
+      },
+    };
+  }
+
+  override onResponseLevel(ctx: Context): Level {
+    return ctx.error ? "error" : "info";
+  }
+
+  override onResponseMessage(ctx: Context): string {
+    return ctx.error ? ctx.error.message : "Request completed";
+  }
+}
+```
+
+After that, just add it to logger configuration.
+
+```ts
+import { Hono } from "@hono/hono";
+import { logger } from "@bramanda48/hono-pino";
+
+const app = new Hono().use(logger({
+  http: new CustomHttpBindings()
+}));
+
+```
 
 ## License
 
