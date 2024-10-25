@@ -159,4 +159,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](https://gi
 
 ## Acknowledgments
 
-The code in this repository is a rewrite for deno. Original source code can be found in here [maou-shonen/hono-pino](https://github1s.com/maou-shonen/hono-pino). 
+The code in this repository is a rewrite for deno. Original source code can be found in here [maou-shonen/hono-pino](https://github.com/maou-shonen/hono-pino). 
