@@ -1,0 +1,10 @@
+{
+  "editor.formatOnSave": true,
+  // "editor.guides.bracketPairs": "active",
+  // "files.insertFinalNewline": true,
+  // "files.eol": "\n",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "always"
+  },
+  "conventionalCommits.scopes": ["code-format", "workflows", "deps"]
+}

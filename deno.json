@@ -1,0 +1,37 @@
+{
+  "name": "@bramanda48/hono-pino",
+  "version": "0.0.5",
+  "exports": "./mod.ts",
+  "publish": {
+    "include": ["LICENSE.md", "README.md", "mod.ts", "src/**/*.ts"]
+  },
+  "tasks": {
+    "dev:example1": "deno run -A --watch examples/example1.ts",
+    "dev:example2": "deno run -A --watch examples/example2.ts",
+    "dev:example3": "deno run -A --watch examples/example3.ts",
+    "deps": "deno cache --reload --lock=deno.lock mod.ts",
+    "test": "deno test"
+  },
+  "imports": {
+    "@hono/hono": "jsr:@hono/hono@^4.6.6",
+    "@std/assert": "jsr:@std/assert@1",
+    "@std/uuid": "jsr:@std/uuid@^1.0.4",
+    "pino": "npm:pino@^9.5.0"
+  },
+  "lint": {
+    "rules": {
+      "tags": ["recommended"],
+      "exclude": ["no-explicit-any"]
+    },
+    "include": ["src/"]
+  },
+  "fmt": {
+    "useTabs": false,
+    "lineWidth": 100,
+    "indentWidth": 2,
+    "semiColons": true,
+    "singleQuote": false,
+    "proseWrap": "preserve",
+    "include": ["src/"]
+  }
+}
