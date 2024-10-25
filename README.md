@@ -8,6 +8,7 @@
   <div align="center">
     <p align="center">A middleware for handling logging with Pino for Hono</p>
     <div>
+        <a href="https://jsr.io/@bramanda48/hono-pino"><img src="https://jsr.io/badges/@bramanda48/hono-pino" alt="JSR release" /></a>
         <a href="https://github.com/bramanda48/hono-pino/releases/"><img src="https://img.shields.io/github/release/bramanda48/hono-pino?include_prereleases=&sort=semver&color=blue" alt="GitHub release"></a>
         <a href="https://github.com/bramanda48/hono-pino#license"><img src="https://img.shields.io/badge/License-MIT-blue" alt="License"></a>
     </div>
@@ -159,4 +160,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](https://gi
 
 ## Acknowledgments
 
-The code in this repository is a rewrite for deno. Original source code can be found in here [maou-shonen/hono-pino](https://github.com/maou-shonen/hono-pino). 
+The code in this repository is a rewrite version for deno. Original source code can be found in here [maou-shonen/hono-pino](https://github.com/maou-shonen/hono-pino). 
