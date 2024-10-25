@@ -16,7 +16,7 @@
 
 ## Installation & Usage
 
-Install @bramanda48/hono-pino using `deno add`:
+Install `@bramanda48/hono-pino using` `deno add`:
 
 ```bash
 deno add jsr:@bramanda48/hono-pino
@@ -56,7 +56,7 @@ app.get("/wait", (ctx) => {
 
 Deno.serve({ port: 3000 }, app.fetch);
 ```
-For more sample, you can see in [examples folder](https://github.com/bramanda48/hono-pino)
+For more sample, you can see in [Example folder](https://github.com/bramanda48/hono-pino/tree/master/example)
 
 ## License
 
