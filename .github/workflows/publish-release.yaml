@@ -63,13 +63,18 @@ jobs:
         with:
           deno-version: v2.x
 
+      - name: Update deno.json version
+        run: |
+          export OLD_VERSION=$(awk -F'"' '/"version": ".+"/{ print $4; exit; }' deno.json)
+          sed -i "s/${OLD_VERSION}/${{ env.INPUT_VENDOR_VERSION }}/g" deno.json
+
       - name: Publish to JSR
-        run: deno publish --allow-slow-types
+        run: deno publish --allow-slow-types --allow-dirty
 
       - name: Commit changes
         run: |
           git config user.name "GitHub Actions"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add package.json
+          git add deno.json
           git commit -m "build: bump version to v${{ env.INPUT_VENDOR_VERSION }}"
           git push
