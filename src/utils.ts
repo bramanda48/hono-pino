@@ -1,16 +1,4 @@
-import type { Context } from "@hono/hono";
 import type { Logger } from "pino";
-import type { PinoLogger } from "./logger.ts";
-
-/**
- * Returns the logger instance from the context.
- *
- * @param ctx The context object that contains the logger.
- * @returns The logger instance.
- */
-export function getLogger(ctx: Context): PinoLogger {
-  return ctx.get("logger");
-}
 
 /**
  * Checks if a given value is a Pino logger instance.
